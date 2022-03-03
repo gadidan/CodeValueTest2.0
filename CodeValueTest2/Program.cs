@@ -18,18 +18,18 @@ namespace CodeValueTest2
             //ABCBEFGHIJKLMNOPQRSTUVWXYZ
             var val = "ABC";
             var dec = "MTB";
-            Console.WriteLine(PrintDecription(val, dec));
+            Console.WriteLine(PrintDecryption(val, dec));
             val = "XYZ";
             dec = "FOQ";
-            Console.WriteLine(PrintDecription(val, dec));
+            Console.WriteLine(PrintDecryption(val, dec));
 
             val = "ACE";
             dec = "MBW";
-            Console.WriteLine(PrintDecription(val,dec));
+            Console.WriteLine(PrintDecryption(val,dec));
 
             val = "ACE";
             dec = "MBZ";
-            Console.WriteLine(PrintDecription(val, dec));
+            Console.WriteLine(PrintDecryption(val, dec));
 
             Console.WriteLine();
             Console.WriteLine();
@@ -40,38 +40,38 @@ namespace CodeValueTest2
             
             var enc = "MTB";
             val = "ABC";
-            Console.WriteLine(PrintEncription(enc, val));
+            Console.WriteLine(PrintEncryption(enc, val));
             enc = "FOQ";
             val = "XYZ";
-            Console.WriteLine(PrintEncription(enc, val));
+            Console.WriteLine(PrintEncryption(enc, val));
             enc = "MBW";
             val = "ACE";
-            Console.WriteLine(PrintEncription(enc, val));
+            Console.WriteLine(PrintEncryption(enc, val));
             enc = "MBZ";
             val = "ACE";
-            Console.WriteLine(PrintEncription(enc, val));
+            Console.WriteLine(PrintEncryption(enc, val));
 
 
             Console.ReadKey();
         }
 
-        private static string PrintEncription(string enc, string val)
+        private static string PrintEncryption(string enc, string val)
         {
-            return $"checking for '{enc}' encryption to '{val}': { CheckEncription(enc, val)}";
+            return $"checking for '{enc}' encryption to '{val}': { CheckEncryption(enc, val)}";
         }
 
-        private static object CheckEncription(string enc, string val)
+        private static object CheckEncryption(string enc, string val)
         {
             var codeValueCipher = new CodeValueCipher();
             return (codeValueCipher.Encrypt(enc, generatedKeyValues) == val);
         }
 
-        private static string PrintDecription(string val, string dec)
+        private static string PrintDecryption(string val, string dec)
         {
-            return $"checking for '{val}' decryption to '{dec}': { CheckDecription(val, dec)}";            
+            return $"checking for '{val}' decryption to '{dec}': { CheckDecryption(val, dec)}";            
         }
 
-        private static bool CheckDecription(string val, string enc)
+        private static bool CheckDecryption(string val, string enc)
         {
             var codeValueCipher = new CodeValueCipher();
             return (codeValueCipher.Decrypt(val, generatedKeyValues) == enc);
